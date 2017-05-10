@@ -4,5 +4,6 @@ export const config = {
   owner: 'mjmlio', 
   repo: 'mjml',
   branch: 'master',
-  exceptions: ['mjml', 'mjml-core', 'mjml-cli', 'mjml-validator']
+  exceptionElements: ['mjml', 'mjml-core', 'mjml-cli', 'mjml-validator', 'mj-list', 'mj-html'],
+  forceAttributes: ['css-class'],
 }

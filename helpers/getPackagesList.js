@@ -12,8 +12,8 @@ export async function getContent (options) {
 
 const isNotAnException = name => {
   let k
-  for (k = 0; k < config.exceptions.length; k++) {
-    if (name == config.exceptions[k]) {
+  for (k = 0; k < config.exceptionElements.length; k++) {
+    if (name == config.exceptionElements[k]) {
       return false
     }
   }

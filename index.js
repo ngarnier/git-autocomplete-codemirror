@@ -10,34 +10,26 @@ let tags = {}
 let readmes 
 
 async function buildTags(options) {
-  let i, j, readme, elements
+  let i, k, readme, elements, tables, tag,
+  attributes = []
     const list = await getContent(options)
     const urls = getPackagesUrls(list)
     
-    const readmes = await getReadmes(urls)
+    const readmes = await getReadmes(urls) // Get all readmes urls
     
     for (i = 0; i < readmes.length; i++) {
       readme = await getReadmeContent(readmes[i])
       elements = getElementsFromReadme(readme)
-      for (j = 0; j < elements.length; j++) {
-        tags[elements[j].replace('mjml-','mj-')] = {}
+      tables = getTablesFromReadme(readme)
+      for (k = 0; k < tables.length; k++) {
+        tags[elements[k].replace('mjml-', 'mj-')] = {
+          attrs: getAttributeFromTable(tables[k])
+        }
       }
     }
     
-    console.log(tags)
-    
-    // const elements = getElementsFromReadme(readme)
-  //  const tables = getTablesFromReadme(readme)
-    
-    
-    // const attributes = getAttributeFromTable(tables[0])
-    
-//    console.log(attributes)
-    
-    //const readme = getReadmeContent(readmes[0])
-    //console.log(readme)
-    // get content of each readme and parse attributes
-    // add each attributes for each tag
+    console.log(JSON.stringify(tags, null, 4))
+    return tags
 }
 
 buildTags(gitOptions)

@@ -1,11 +1,11 @@
 import rp from 'request-promise'
-import { authParameters, rawGitUrl_dev, rawGitUrl_prod, rawGitBasePath, gitUrl, gitHTMLPath } from '../options'
+import { authParameters, rawGitUrl, rawGitBasePath, gitUrl, gitHTMLPath } from '../options'
 import { getContent } from '../helpers/getPackagesList'
 let i, j
 let readmesUrls = []
 
 const getRawGitUrl = pkgGitUrl => {
-  return pkgGitUrl.replace(`${gitUrl}${gitHTMLPath}`, `${rawGitUrl_dev}${rawGitBasePath}`)
+  return pkgGitUrl.replace(`${gitUrl}${gitHTMLPath}`, `${rawGitUrl}${rawGitBasePath}`)
 }
 
 export async function getReadmes(urls) {
@@ -42,14 +42,3 @@ export async function getReadmeContent(gitUrl) {
     resolve(readmeContent)
   })
 }
-
-
-
-
-// export async function getAttributes(readmeUrl) {
-//   const gitRawUrl = readmeUrl.replace('https://github.com/mjmlio/mjml/blob/master/packages/','https://rawgit.com/mjmlio/mjml/master/packages/')
-//   const readMe = await rp({
-//     
-//   })
-//   return content
-// }

@@ -3,7 +3,7 @@ export const config = {
   gitSecret: process.env.gitSecret,
   owner: 'mjmlio', 
   repo: 'mjml',
-  branch: 'master',
+  tag: '3.3.3',
   exceptionElements: ['mjml', 'mjml-core', 'mjml-cli', 'mjml-validator', 'mj-list', 'mj-html'],
   forceAttributes: ['css-class'],
 }

@@ -4,7 +4,7 @@ import { config } from './config'
 import { getContent, getPackagesUrls } from './helpers/getPackagesList'
 import { getReadmes, getReadmeContent } from './helpers/getAttributes'
 import { getElementsFromReadme, getTablesFromReadme, getAttributeFromTable } from './helpers/parseReadme'
-import { rawGitBasePath, rawGitUrl_dev, rawGitUrl_prod, gitAPIUrl, gitBasePath, authParameters, rawGitOptions, gitOptions } from './options'
+import { rawGitBasePath, rawGitUrl, gitAPIUrl, gitBasePath, authParameters, rawGitOptions, gitOptions } from './options'
 
 let tags = {}
 let readmes 
@@ -29,6 +29,7 @@ async function buildTags(options) {
     }
     
     console.log(JSON.stringify(tags, null, 4))
+    console.log(`Version: ${config.tag}`)
     return tags
 }
 
